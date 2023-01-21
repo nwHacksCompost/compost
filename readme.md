@@ -1,7 +1,6 @@
-nwsHacks 2023
-Compost
--------------
-Avery M
-Liana D
-Jackie M
+nwHacks 2023
+# Compost
+Avery M<br>
+Liana D<br>
+Jackie M<br>
 Tracy L
