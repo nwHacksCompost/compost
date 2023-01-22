@@ -33,10 +33,15 @@ window.addEventListener('load', () => {
         const ingredientActions = document.createElement("div");
         ingredientInput.classList.add("actions");
 
+        const ingredientEdit = document.createElement("button");
+        ingredientEdit.classList.add("edit");
+        ingredientEdit.innerHTML = "Edit";
+
         const ingredientDelete = document.createElement("button");
         ingredientDelete.classList.add("delete");
         ingredientDelete.innerHTML = "Delete";
 
+        ingredientActions.appendChild(ingredientEdit);
         ingredientActions.appendChild(ingredientDelete);
 
         ingredientElement.appendChild(ingredientActions);
@@ -45,7 +50,22 @@ window.addEventListener('load', () => {
 
         input.value = "";
 
+        ingredientEdit.addEventListener('click', (e) => {
+			if (ingredientEdit.innerText.toLowerCase() == "edit") {
+				ingredientEdit.innerText = "Save";
+				ingredientInput.removeAttribute("readonly");
+				ingredientInput.focus();
+			} else {
+				ingredientEdit.innerText = "Edit";
+				task_input_el.setAttribute("readonly", "readonly");
+			}
+		});
+
         ingredientDelete.addEventListener('click', (e) => {
+            const numberOfIngredients = document.querySelectorAll('.ingredient').length;
+            if (numberOfIngredients <= 1){
+                return;
+            }
             list.removeChild(ingredientElement);
         }) 
     })
