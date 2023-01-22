@@ -1,3 +1,6 @@
+import { app, db, collection, getDocs, Timestamp, addDoc, query, where, onSnapshot} from './firebase.js';
+
+
 window.addEventListener('load', () => {
     const form = document.querySelector("#new-ingredient-form");
     const input = document.querySelector("#new-ingredient");
@@ -10,7 +13,7 @@ window.addEventListener('load', () => {
         const ingredient = input.value;
 
         if (!ingredient) {
-            alert("");
+            alert("Please input an ingredient.");
             return;
         } 
 
@@ -77,7 +80,29 @@ window.addEventListener('load', () => {
         for (var i = 0; i < submittedIngredients.length; i++) {
             ingredientsArray.push(submittedIngredients.item(i).value);
         }
-
+        const recipeList = getRecipes(db);
+        console.log(recipeList);
         console.log(ingredientsArray);
-    })
+
+        const colRef = collection(db, 'recipes');
+
+        const q = query(colRef, where("tags", "array-contains", ingredientsArray[0]))
+
+        onSnapshot(q, (snapshot) => {
+            let recipes = [];
+            snapshot.docs.forEach((doc) => {
+                recipes.push({ ...doc.data(), id: doc.id})
+            })
+            console.log(recipes);
+        })
+
+        localStorage.setItem("availableRecipes",recipes);
+    });
 })
+
+async function getRecipes(db) {
+    const recipesCol = collection(db, 'recipes');
+    const recipesSnapshot = await getDocs(recipesCol);
+    const recipeList = recipesSnapshot.docs.map(doc => doc.data());
+    return recipeList;
+}
