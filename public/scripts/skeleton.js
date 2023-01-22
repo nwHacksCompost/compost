@@ -4,4 +4,3 @@ function loadSkeleton(){
     console.log($('#footerPlaceholder').load('../../app/html/footer.html'));
 }
 loadSkeleton();
-
