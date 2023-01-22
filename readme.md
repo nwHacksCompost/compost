@@ -1,6 +1,6 @@
 nwHacks 2023
 # Compost
 Avery M<br>
-Liana D<br>
+Liana Diu<br>
 Jackie M<br>
 Tracy L
