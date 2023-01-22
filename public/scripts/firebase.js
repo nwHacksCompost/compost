@@ -25,11 +25,18 @@ const db = getFirestore(app);
 const colRef = collection(db, 'recipes')
 
 //get collections
-getDocs(colRef)
-.then((snapshot) => {
-    console.log(snapshot.docs)
-  })
+// getDocs(colRef)
+// .then((snapshot) => {
+//     console.log(snapshot.docs)
+//   })
 
+//   async function getRecipes(db) {
+//     const recipesCol = collection(db, 'recipes');
+//     const recipesSnapshot = await getDocs(recipesCol);
+//     const recipeList = recipesSnapshot.docs.map(doc => doc.data());
+//     console.log(recipeList);
+//     return recipeList;
+//   }
 
 export { app, db, collection, getDocs, Timestamp, addDoc };
 export { query, orderBy, limit, where, onSnapshot };
