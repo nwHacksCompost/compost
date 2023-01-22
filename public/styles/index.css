@@ -12,7 +12,53 @@ body {
 
 .searchAgain {
     position: absolute;
-    left: 20%;
-    right: 20%;
-    bottom: 10%;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sad {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
+
+.backgrounds {
+    height: 100vh;
+}
+
+.bkg-img {
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    height: 33%;
+    /* You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+}
+
+#bkg-img1 {
+    background-image: url("/public/images/img1.jpg");
+}
+
+#bkg-img2 {
+    background-image: url("/public/images/img2.jpg");
+}
+
+#bkg-img3 {
+    background-image: url("/public/images/img3.jpg");
+}
+
+#welcome-box {
+    height: 100%;
+}
+#welcome-card {
+    background-color: #006837 !important;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 }
