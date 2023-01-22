@@ -2,6 +2,7 @@ window.addEventListener('load', () => {
     const form = document.querySelector("#new-ingredient-form");
     const input = document.querySelector("#new-ingredient");
     const list = document.querySelector("#ingredient-list");
+    const getRecipesButton = document.querySelector("#get-recipes");
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -68,5 +69,15 @@ window.addEventListener('load', () => {
             }
             list.removeChild(ingredientElement);
         }) 
+    })
+
+    getRecipesButton.addEventListener('click', (e) => {
+        var submittedIngredients = document.getElementsByClassName("text");
+        var ingredientsArray = [];
+        for (var i = 0; i < submittedIngredients.length; i++) {
+            ingredientsArray.push(submittedIngredients.item(i).value);
+        }
+
+        console.log(ingredientsArray);
     })
 })
