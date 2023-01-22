@@ -33,15 +33,10 @@ window.addEventListener('load', () => {
         const ingredientActions = document.createElement("div");
         ingredientInput.classList.add("actions");
 
-        const ingredientEdit = document.createElement("button");
-        ingredientEdit.classList.add("edit");
-        ingredientEdit.innerHTML = "Edit";
-
         const ingredientDelete = document.createElement("button");
         ingredientDelete.classList.add("delete");
         ingredientDelete.innerHTML = "Delete";
 
-        ingredientActions.appendChild(ingredientEdit);
         ingredientActions.appendChild(ingredientDelete);
 
         ingredientElement.appendChild(ingredientActions);
@@ -49,5 +44,9 @@ window.addEventListener('load', () => {
         list.appendChild(ingredientElement);
 
         input.value = "";
+
+        ingredientDelete.addEventListener('click', (e) => {
+            list.removeChild(ingredientElement);
+        }) 
     })
 })
