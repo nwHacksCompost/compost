@@ -95,6 +95,8 @@ window.addEventListener('load', () => {
             })
             console.log(recipes);
         })
+
+        localStorage.setItem("availableRecipes",recipes);
     });
 })
 
